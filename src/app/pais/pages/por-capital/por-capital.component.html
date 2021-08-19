@@ -1,0 +1,23 @@
+<p>Por capital </p>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-pais-input 
+        (onEnter)="buscar($event)" 
+        (onDebounce)="sugerencias($event)"
+        placeholder = "Buscar por capital..."
+    > 
+    </app-pais-input>
+    </div>
+</div>
+
+
+
+<div *ngIf="hasError" class="alert alert-danger">
+    No se encontro nada con el término {{termino}}
+</div>
+
+<div  *ngIf="paises.length > 0" class="row">
+   <app-pais-tabla [paises]="paises"></app-pais-tabla>
+</div>
